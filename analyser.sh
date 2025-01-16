@@ -15,3 +15,6 @@ awk '{print $7}' $LOG_FILE | sort | uniq -c | sort -nr | head -n 5
 
 echo "\nTop 5 response status codes:"
 cut -d' ' -f9 $LOG_FILE | sort | uniq -c | sort -nr | head -n 5
+
+echo "\nTop 5 user agents:"
+awk -F'"' '{print $6}' $LOG_FILE | sort | uniq -c | sort -nr | head -n 5
