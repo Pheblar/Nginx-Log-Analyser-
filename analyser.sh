@@ -9,3 +9,6 @@ fi
 
 echo "Top 5 IP addresses with the most requests:"
 grep -o '^[^ ]*' $LOG_FILE | sort | uniq -c | sort -nr | head -n 5
+
+echo "\nTop 5 most requested paths:"
+awk '{print $7}' $LOG_FILE | sort | uniq -c | sort -nr | head -n 5
